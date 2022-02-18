@@ -1,5 +1,7 @@
 package main.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,9 +16,11 @@ public class Tag2Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @Column(name = "post_id", nullable = false)
     private Post post;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @Column(name = "tag_id", nullable = false)
     private Tag tag;
 
     public Tag2Post(Post post, Tag tag) {

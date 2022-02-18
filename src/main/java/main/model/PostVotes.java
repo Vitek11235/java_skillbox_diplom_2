@@ -1,13 +1,17 @@
 package main.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.sql.Date;
+import java.util.Date;
+
 
 @Entity
 @Table(name = "post_votes")
@@ -15,10 +19,14 @@ public class PostVotes {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(name = "user_id", nullable = false)
     private User user;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @Column(name = "post_id", nullable = false)
     private Post post;
+    @Column(nullable = false)
     private Date time;
+    @Column(nullable = false)
     private int value;
 
     public PostVotes(User user, Post post, Date time, int value) {

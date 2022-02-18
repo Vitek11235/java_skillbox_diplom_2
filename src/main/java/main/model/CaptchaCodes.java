@@ -6,7 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Date;
+import java.util.Date;
+
 
 @Entity
 @Table(name = "captcha_codes")
@@ -14,9 +15,11 @@ public class CaptchaCodes {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(nullable = false)
     private Date time;
+    @Column(nullable = false, columnDefinition = "tinytext")
     private String code;
-    @Column(name = "secret_code")
+    @Column(name = "secret_code", nullable = false, columnDefinition = "tinytext")
     private String secretCode;
 
     public CaptchaCodes(Date time, String code, String secret_code) {
