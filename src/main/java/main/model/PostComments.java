@@ -22,7 +22,7 @@ public class PostComments {
     @Column(name = "parent_id")
     private int parentId;
     @ManyToOne(cascade = CascadeType.ALL)
-    @Column(name = "post_id", nullable = false)
+    @JoinColumn(name = "post_id", nullable = false)
     private Post post;
     @Column(name = "user_id", nullable = false)
     private User user;

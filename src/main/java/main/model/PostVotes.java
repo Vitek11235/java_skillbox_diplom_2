@@ -22,7 +22,7 @@ public class PostVotes {
     @Column(name = "user_id", nullable = false)
     private User user;
     @ManyToOne(cascade = CascadeType.ALL)
-    @Column(name = "post_id", nullable = false)
+    @JoinColumn(name = "post_id", nullable = false)
     private Post post;
     @Column(nullable = false)
     private Date time;

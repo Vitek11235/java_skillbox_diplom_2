@@ -30,7 +30,7 @@ public class Post {
     @Column(name = "moderator_id")
     private int moderatorId;
     @ManyToOne(cascade = CascadeType.ALL)
-    @Column(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
     @Column(nullable = false)
     private Date time;

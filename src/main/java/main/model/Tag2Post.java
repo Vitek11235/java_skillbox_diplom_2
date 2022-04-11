@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -17,10 +18,10 @@ public class Tag2Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @ManyToOne(cascade = CascadeType.ALL)
-    @Column(name = "post_id", nullable = false)
+    @JoinColumn(name = "post_id", nullable = false)
     private Post post;
     @ManyToOne(cascade = CascadeType.ALL)
-    @Column(name = "tag_id", nullable = false)
+    @JoinColumn(name = "tag_id", nullable = false)
     private Tag tag;
 
     public Tag2Post(Post post, Tag tag) {
