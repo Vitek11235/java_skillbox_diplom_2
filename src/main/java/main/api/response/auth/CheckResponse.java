@@ -6,10 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CheckResponse {
     private boolean result;
-//    private User user;
-//    private boolean moderation;
-//    private int moderationCount;
-//    private boolean settings;
+    private CheckUserDto user;
 
     public boolean isResult() {
         return result;
@@ -19,4 +16,11 @@ public class CheckResponse {
         this.result = result;
     }
 
+    public CheckUserDto getUser() {
+        return user;
+    }
+
+    public void setUser(CheckUserDto user) {
+        this.user = user;
+    }
 }

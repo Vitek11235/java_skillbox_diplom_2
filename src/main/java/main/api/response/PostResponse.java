@@ -8,11 +8,8 @@ import java.util.List;
 
 @Component
 public class PostResponse {
-//    private User user;
-//    private Post post;
-
     private int count;
-    private List<Post> posts;
+    private List<PostDto> posts;
 
     public int getCount() {
         return count;
@@ -22,14 +19,12 @@ public class PostResponse {
         this.count = count;
     }
 
-    public List<Post> getPosts() {
+    public List<PostDto> getPosts() {
         return posts;
     }
 
-    public void setPosts(List<Post> posts) {
+    public void setPosts(List<PostDto> posts) {
         this.posts = posts;
     }
-
-
 
 }

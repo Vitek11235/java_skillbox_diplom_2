@@ -1,15 +1,15 @@
 package main.service;
 
-import main.api.response.SettingsRespons;
+import main.api.response.SettingsResponse;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SettingsService {
 
-    public SettingsRespons getGlobalSettings() {
-        SettingsRespons settingsRespons = new SettingsRespons();
-        settingsRespons.setPostPremoderation(true);
-        settingsRespons.setStatisticsIsPublic(true);
-        return settingsRespons;
+    public SettingsResponse getGlobalSettings() {
+        SettingsResponse settingsResponse = new SettingsResponse();
+        settingsResponse.setPostPremoderation(true);
+        settingsResponse.setStatisticsIsPublic(true);
+        return settingsResponse;
     }
 }

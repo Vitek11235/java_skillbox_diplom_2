@@ -1,7 +1,8 @@
 package main.controller;
 
+import main.api.response.CalendarDto;
 import main.api.response.InitResponse;
-import main.api.response.SettingsRespons;
+import main.api.response.SettingsResponse;
 import main.service.SettingsService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,8 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ApiGeneralController {
 
-    private final SettingsService settingsService;
-    private final InitResponse initResponse;
+    private SettingsService settingsService;
+    private InitResponse initResponse;
+    private CalendarDto calendarDto;
 
     public ApiGeneralController(SettingsService settingsService, InitResponse initResponse) {
         this.settingsService = settingsService;
@@ -18,12 +20,17 @@ public class ApiGeneralController {
     }
 
     @GetMapping("/api/settings")
-    private SettingsRespons settings() {
+    private SettingsResponse settings() {
         return settingsService.getGlobalSettings();
     }
 
     @GetMapping("/api/init")
     private InitResponse init() {
         return initResponse;
+    }
+
+    @GetMapping("/api/calendar")
+    private CalendarDto calendar() {
+        return calendarDto;
     }
 }

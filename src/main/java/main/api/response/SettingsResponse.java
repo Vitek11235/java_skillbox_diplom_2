@@ -2,7 +2,7 @@ package main.api.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SettingsRespons {
+public class SettingsResponse {
     @JsonProperty("MULTIUSER_MODE")
     private boolean multiuserMode;
     @JsonProperty("POST_PREMODERATION")
